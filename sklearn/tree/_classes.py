@@ -147,9 +147,7 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
         check_is_fitted(self)
         return self.tree_.n_leaves
 
-    def fit(
-        self, X, y, sample_weight=None, check_input=True, X_idx_sorted="deprecated"
-    ):
+    def fit(self, X, y, sample_weight=None, check_input=True, X_idx_sorted="deprecated"):
 
         random_state = check_random_state(self.random_state)
 
@@ -896,9 +894,7 @@ class DecisionTreeClassifier(ClassifierMixin, BaseDecisionTree):
             ccp_alpha=ccp_alpha,
         )
 
-    def fit(
-        self, X, y, sample_weight=None, check_input=True, X_idx_sorted="deprecated"
-    ):
+    def fit(self, X, y, sample_weight=None, check_input=True, X_idx_sorted="deprecated"):
         """Build a decision tree classifier from the training set (X, y).
 
         Parameters
@@ -934,13 +930,7 @@ class DecisionTreeClassifier(ClassifierMixin, BaseDecisionTree):
             Fitted estimator.
         """
 
-        super().fit(
-            X,
-            y,
-            sample_weight=sample_weight,
-            check_input=check_input,
-            X_idx_sorted=X_idx_sorted,
-        )
+        super().fit(X, y, sample_weight=sample_weight, check_input=check_input, X_idx_sorted=X_idx_sorted,)
         return self
 
     def predict_proba(self, X, check_input=True):
@@ -1275,9 +1265,7 @@ class DecisionTreeRegressor(RegressorMixin, BaseDecisionTree):
             ccp_alpha=ccp_alpha,
         )
 
-    def fit(
-        self, X, y, sample_weight=None, check_input=True, X_idx_sorted="deprecated"
-    ):
+    def fit(self, X, y, sample_weight=None, check_input=True, X_idx_sorted="deprecated"):
         """Build a decision tree regressor from the training set (X, y).
 
         Parameters
@@ -1312,13 +1300,7 @@ class DecisionTreeRegressor(RegressorMixin, BaseDecisionTree):
             Fitted estimator.
         """
 
-        super().fit(
-            X,
-            y,
-            sample_weight=sample_weight,
-            check_input=check_input,
-            X_idx_sorted=X_idx_sorted,
-        )
+        super().fit(X, y, sample_weight=sample_weight, check_input=check_input, X_idx_sorted=X_idx_sorted,)
         return self
 
     def _compute_partial_dependence_recursion(self, grid, target_features):
